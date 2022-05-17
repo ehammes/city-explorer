@@ -3,7 +3,8 @@
 }
 
 #body {
-  background-color: rgb(145, 204, 248);
+  background-color: rgb(174, 220, 255);
+  padding: 3% 0% 20% 0%;
 }
 
 h1 {
@@ -11,7 +12,12 @@ h1 {
   font-weight: bold;
 }
 
-p, form {
+p {
+  text-align: center;
+  margin: 20px 20px;
+}
+
+form {
   text-align: center;
   font-weight: 550;
   margin: 20px 20px;
@@ -32,4 +38,5 @@ form > button {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
+  margin: 3%;
 }
