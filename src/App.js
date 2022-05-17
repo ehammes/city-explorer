@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import { Accordion, Image } from 'react-bootstrap';
+import { Accordion, Image, Button } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class App extends React.Component {
       error: false,
       long: '',
       lat: '',
+      mapImage: false,
     }
   }
 
@@ -22,12 +23,14 @@ class App extends React.Component {
       this.setState({
         cityName: cityDetails.data[0].display_name,
         long: cityDetails.data[0].lon,
-        lat: cityDetails.data[0].lat
+        lat: cityDetails.data[0].lat,
+        mapImage: true,
       });
     } catch (error) {
       this.setState({
         error: true,
         errorMessage: error.message,
+        mapImage: false,
       })
     }
   }
@@ -48,14 +51,14 @@ class App extends React.Component {
         <form onSubmit={this.handleCitySubmit}>
           <label htmlFor="cityName">Enter a City:</label>
           <input type='text' id="cityName" onChange={this.cityChange} />
-          <button type='submit'>Lookup City Information</button>
+          <Button type='submit' size='sm'>Lookup City Information</Button>
         </form>
         {this.state.error
           ?
           <p id='error'>{this.state.errorMessage}</p>
           :
           <div id='accordion'>
-            <Accordion defaultActiveKey="0" alwaysOpen>
+            <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>
                   <strong>City:</strong> {this.state.cityName}
@@ -67,10 +70,12 @@ class App extends React.Component {
                   <strong>Longitude:</strong> {this.state.long}
                 </Accordion.Body>
                 <Accordion.Body>
+                {this.state.mapImage &&
                   <Image
                     src={mapURL}
-                    fluid>
-                  </Image>
+                    fluid
+                  />
+                }
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
