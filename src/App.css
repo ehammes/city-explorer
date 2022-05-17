@@ -2,25 +2,28 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
+#body {
   background-color: rgb(145, 204, 248);
 }
 
 h1 {
   text-align: center;
-  margin: 30px;
   font-weight: bold;
 }
 
 p, form {
   text-align: center;
   font-weight: 550;
-  margin-bottom: 20px;
+  margin: 20px 20px;
 }
 
 form > button {
   font-weight: 550;
   margin-left: 20px;
+}
+
+#error {
+  color: red;
 }
 
 #accordion {
