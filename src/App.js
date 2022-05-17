@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import {Accordion} from 'react-bootstrap';
+import { Accordion, Image } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: [],
+      city: '',
     }
   }
 
@@ -29,27 +29,40 @@ class App extends React.Component {
   }
 
   render() {
-
+    let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.lat},${this.state.long}&zoom=13`
 
     return (
       <>
-        <h1>hello!</h1>
-        <form onSubmit={this.handleCitySubmit}>
-          <label htmlFor="cityName">Enter a City</label>
-          <input type='text' id="cityName" onChange={this.cityChange} />
-          <button type='submit'>Lookup City Information</button>
-        </form>
-        <Accordion flush>
-          <Accordion.Item>
-            <Accordion.Header>{this.state.cityName}</Accordion.Header>
-              <Accordion.Body>
-                {this.state.long}
-            </Accordion.Body>
-            <Accordion.Body>
-                {this.state.lat}
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
+        <body>
+          <h1>City Explorer</h1>
+          <p>Enter the name of a city beow to view the coordinates of the location on a map</p>
+          <form onSubmit={this.handleCitySubmit}>
+            <label htmlFor="cityName">Enter a City:</label>
+            <input type='text' id="cityName" onChange={this.cityChange} />
+            <button type='submit'>Lookup City Information</button>
+          </form>
+          <div id='accordion'>
+            <Accordion defaultActiveKey="0" alwaysOpen>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>
+                  <strong>City:</strong> {this.state.cityName}
+                </Accordion.Header>
+                <Accordion.Body>
+                  <strong>Latitude:</strong> {this.state.lat}
+                </Accordion.Body>
+                <Accordion.Body>
+                  <strong>Longitude:</strong> {this.state.long}
+                </Accordion.Body>
+                <Accordion.Body>
+                  <Image
+                    src={mapURL}
+                    fluid>
+                  </Image>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          </div>
+        </body>
       </>
     );
   }
