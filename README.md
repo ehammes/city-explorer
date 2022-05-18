@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Elizabeth Hammes
-**Version**: 1.1.3
+**Version**: 1.1.5
 
 ## Overview
 Enter a city and view the longitude and latitude coordinates on a map.
@@ -10,20 +10,27 @@ Enter a city and view the longitude and latitude coordinates on a map.
 Created a new repository, configured a new react application, and connected GitHub repo
 
 ## Architecture
-React.js, bootstrap,LocationIQ, Netlify
+React.js, bootstrap, LocationIQ, Netlify, Heroku
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+05-17-2022 11:00pm - App includes express server, with a GET route for the location resource and city data
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Collaborated with classmates and TAs to build application
 
 ### Time Estimates
 
+May 17, 2022
+![](/public/img/051722.jpeg) in collaboration with Vinny Shipley
+
+- Name of Feature: Lab 07
+- Estiamte of time needed to complete: 3 hours
+- Start time: 3:00pm
+- Finish time: 6:00pm
+- Actual time needed to complete: Estimated times, worked on it throughout the evening.
+
 May 16, 2022
-![](/public/img/051622.jpeg)
+![](/public/img/051622.jpeg) in collaboration with Guy Farley
 
 - Name of Feature: Lab 06
 - Estiamte of time needed to complete: 3 hours
