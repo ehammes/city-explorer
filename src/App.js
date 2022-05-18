@@ -13,7 +13,8 @@ class App extends React.Component {
       long: '',
       lat: '',
       mapImage: false,
-      weatherDetails: []
+      weatherDetails: {},
+      showWeather: false
     }
   }
 
@@ -24,12 +25,14 @@ class App extends React.Component {
       let cityDetails = await axios.get(url);
       let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`
       let weather = await axios.get(weatherURL);
+      // console.log(weather.data);
       this.setState({
         cityName: cityDetails.data[0].display_name,
         long: cityDetails.data[0].lon,
         lat: cityDetails.data[0].lat,
         mapImage: true,
-        weatherDetails: weather.data
+        weatherDetails: weather.data,
+        showWeather: true
       });
     } catch (error) {
       this.setState({
