@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+// import Weather from './component/Weather/Weather.js'
 import axios from 'axios';
 import { Accordion, Image, Button } from 'react-bootstrap';
 
@@ -12,6 +13,7 @@ class App extends React.Component {
       long: '',
       lat: '',
       mapImage: false,
+      weatherDetails: []
     }
   }
 
@@ -20,11 +22,14 @@ class App extends React.Component {
     try {
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
       let cityDetails = await axios.get(url);
+      let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`
+      let weather = await axios.get(weatherURL);
       this.setState({
         cityName: cityDetails.data[0].display_name,
         long: cityDetails.data[0].lon,
         lat: cityDetails.data[0].lat,
         mapImage: true,
+        weatherDetails: weather.data
       });
     } catch (error) {
       this.setState({
@@ -70,17 +75,25 @@ class App extends React.Component {
                   <strong>Longitude:</strong> {this.state.long}
                 </Accordion.Body>
                 <Accordion.Body>
-                {this.state.mapImage &&
-                  <Image
-                    src={mapURL}
-                    fluid
-                  />
-                }
+                  {this.state.mapImage &&
+                    <Image
+                      src={mapURL}
+                      fluid
+                    />
+                  }
+                </Accordion.Body>
+                <Accordion.Body>
+                  <p>test</p>
+                  {/* <ul>
+                    {this.state.weatherDetails.map(item => (<li>{item}</li>))}
+                  </ul> */}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </div>
         }
+        <div>
+        </div>
       </div>
     );
   }
