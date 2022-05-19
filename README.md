@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Elizabeth Hammes
-**Version**: 1.1.5
+**Version**: 3.1.5
 
 ## Overview
 Enter a city and view the longitude and latitude coordinates on a map.
@@ -20,6 +20,15 @@ Collaborated with classmates and TAs to build application
 
 ### Time Estimates
 
+May 18, 2022
+![](/public/img/wrrc-lab08.jpeg) in collaboration with Dana Huffman
+
+- Name of Feature: Lab 08
+- Estiamte of time needed to complete: 3.5 hours
+- Start time: 3:00pm
+- Finish time: 7:00pm
+- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed.
+
 May 17, 2022
 ![](/public/img/051722.jpeg) in collaboration with Vinny Shipley
 
@@ -27,7 +36,7 @@ May 17, 2022
 - Estiamte of time needed to complete: 3 hours
 - Start time: 3:00pm
 - Finish time: 6:00pm
-- Actual time needed to complete: Estimated times, worked on it throughout the evening.
+- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further fixes needed.
 
 May 16, 2022
 ![](/public/img/051622.jpeg) in collaboration with Guy Farley

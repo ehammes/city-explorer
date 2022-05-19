@@ -41,7 +41,6 @@ class App extends React.Component {
         mapImage: false,
       })
     }
-    console.log(this.state.weatherDetails[0]);
   }
 
   cityChange = (e) => {
