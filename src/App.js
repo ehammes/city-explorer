@@ -13,7 +13,7 @@ class App extends React.Component {
       long: '',
       lat: '',
       mapImage: false,
-      weatherDetails: {},
+      weatherDetails: [],
       showWeather: false
     }
   }
@@ -23,9 +23,9 @@ class App extends React.Component {
     try {
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
       let cityDetails = await axios.get(url);
-      let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`
+      let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`;
       let weather = await axios.get(weatherURL);
-      // console.log(weather.data);
+      console.log(weather);
       this.setState({
         cityName: cityDetails.data[0].display_name,
         long: cityDetails.data[0].lon,
@@ -41,6 +41,7 @@ class App extends React.Component {
         mapImage: false,
       })
     }
+    console.log(this.state.weatherDetails[0]);
   }
 
   cityChange = (e) => {
@@ -86,10 +87,7 @@ class App extends React.Component {
                   }
                 </Accordion.Body>
                 <Accordion.Body>
-                  <p>test</p>
-                  {/* <ul>
-                    {this.state.weatherDetails.map(item => (<li>{item}</li>))}
-                  </ul> */}
+                  {/* {this.state.weatherDetails[0].description} */}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
