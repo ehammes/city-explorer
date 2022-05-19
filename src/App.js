@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-// import Weather from './component/Weather/Weather.js'
+import Weather from './component/Weather/Weather.js'
 import axios from 'axios';
 import { Accordion, Image, Button } from 'react-bootstrap';
 
@@ -25,14 +25,15 @@ class App extends React.Component {
       let cityDetails = await axios.get(url);
       let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`;
       let weather = await axios.get(weatherURL);
-      console.log(weather);
+      // console.log(weather);
       this.setState({
         cityName: cityDetails.data[0].display_name,
         long: cityDetails.data[0].lon,
         lat: cityDetails.data[0].lat,
         mapImage: true,
         weatherDetails: weather.data,
-        showWeather: true
+        showWeather: true,
+        error: false,
       });
     } catch (error) {
       this.setState({
@@ -41,7 +42,6 @@ class App extends React.Component {
         mapImage: false,
       })
     }
-    console.log(this.state.weatherDetails[0]);
   }
 
   cityChange = (e) => {
@@ -52,6 +52,8 @@ class App extends React.Component {
 
   render() {
     let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.lat},${this.state.long}&zoom=13`
+    // console.log(this.state.weatherDetails);
+    let weatherDays = this.state.weatherDetails.map((forecast, idx) => <Weather weather={forecast} key={idx}/>)
 
     return (
       <div id='body'>
@@ -87,7 +89,8 @@ class App extends React.Component {
                   }
                 </Accordion.Body>
                 <Accordion.Body>
-                  {/* {this.state.weatherDetails[0].description} */}
+                <strong>3-day Forecast:</strong>
+                  {this.state.showWeather && weatherDays}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
