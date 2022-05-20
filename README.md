@@ -34,7 +34,7 @@ May 19, 2022
 - Estiamte of time needed to complete: 4 hours
 - Start time: 2:00pm
 - Finish time: 6:00pm
-- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed on lab 08 and lab 09.
+- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed on lab 08 and lab 09. Remaining work completed on 5/20.
 
 May 19, 2022
 ![](/public/img/wrrc-lab08.jpeg) in collaboration with Dana Huffman
@@ -43,7 +43,7 @@ May 19, 2022
 - Estiamte of time needed to complete: 3.5 hours
 - Start time: 3:00pm
 - Finish time: 7:00pm
-- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed.
+- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed. Remaining work completed 5/20.
 
 May 18, 2022
 ![](/public/img/wrrc-lab08.jpeg) in collaboration with Dana Huffman
