@@ -64,8 +64,6 @@ class App extends React.Component {
     let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.lat},${this.state.long}&zoom=13`
     let weatherDays = this.state.weatherDetails.map((forecast, idx) => <Weather weather={forecast} key={idx} />)
     let movieInfo = this.state.movieDetails.map((movieInfo, idx) => <Movies movies={movieInfo} key={idx} />)
-    console.log(this.state.movieDetails);
-    console.log(movieInfo);
 
     return (
       <div id='body'>
