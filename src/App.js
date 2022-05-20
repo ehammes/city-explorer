@@ -14,7 +14,9 @@ class App extends React.Component {
       lat: '',
       mapImage: false,
       weatherDetails: [],
-      showWeather: false
+      showWeather: false.value,
+      showMovieTimes: false,
+      movieDetails:[]
     }
   }
 
@@ -23,23 +25,29 @@ class App extends React.Component {
     try {
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
       let cityDetails = await axios.get(url);
-      let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}`;
+      let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}&lat=${cityDetails.data[0].lat}&lon=${cityDetails.data[0].lon}`;
       let weather = await axios.get(weatherURL);
-      // console.log(weather);
+      let movieURL = `${process.env.REACT_APP_SERVER}/movie?&city=${this.state.city}`;
+      let movie = await axios.get(movieURL);
+      console.log(movieURL);
+      console.log(movie);
       this.setState({
         cityName: cityDetails.data[0].display_name,
-        long: cityDetails.data[0].lon,
         lat: cityDetails.data[0].lat,
+        long: cityDetails.data[0].lon,
         mapImage: true,
         weatherDetails: weather.data,
         showWeather: true,
         error: false,
+        showMovieTimes: true,
+        movieDetails: movie
       });
     } catch (error) {
       this.setState({
         error: true,
         errorMessage: error.message,
         mapImage: false,
+        showMovieTimes: false,
       })
     }
   }
@@ -52,8 +60,7 @@ class App extends React.Component {
 
   render() {
     let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.lat},${this.state.long}&zoom=13`
-    // console.log(this.state.weatherDetails);
-    let weatherDays = this.state.weatherDetails.map((forecast, idx) => <Weather weather={forecast} key={idx}/>)
+    let weatherDays = this.state.weatherDetails.map((forecast, idx) => <Weather weather={forecast} key={idx} />)
 
     return (
       <div id='body'>
@@ -89,8 +96,12 @@ class App extends React.Component {
                   }
                 </Accordion.Body>
                 <Accordion.Body>
-                <strong>3-day Forecast:</strong>
+                  <strong>7-day Forecast:</strong>
                   {this.state.showWeather && weatherDays}
+                </Accordion.Body>
+                <Accordion.Body>
+                  {/* <strong>Movie Showings</strong>
+                  {this.state.showMovieTimes && this.state.movieDetails} */}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>

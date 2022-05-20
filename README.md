@@ -20,6 +20,23 @@ Collaborated with classmates and TAs to build application
 
 ### Time Estimates
 
+May 19, 2022
+![](/public/img/wrrc051922.jpeg) in collaboration with Katharine Swilley
+- Name of Feature: Lab 09
+- Estiamte of time needed to complete: 4 hours
+- Start time: 2:00pm
+- Finish time: 6:00pm
+- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed on lab 08 and lab 09.
+
+May 19, 2022
+![](/public/img/wrrc-lab08.jpeg) in collaboration with Dana Huffman
+
+- Name of Feature: Lab 08
+- Estiamte of time needed to complete: 3.5 hours
+- Start time: 3:00pm
+- Finish time: 7:00pm
+- Actual time needed to complete: Estimated times, worked on it throughout the evening. Further tasks need to be completed.
+
 May 18, 2022
 ![](/public/img/wrrc-lab08.jpeg) in collaboration with Dana Huffman
 
