@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import Weather from './component/Weather/Weather.js'
+import Weather from './components/Weather/Weather.js'
+import Movies from './components/Movies/Movies.js'
 import axios from 'axios';
 import { Accordion, Image, Button } from 'react-bootstrap';
 
@@ -16,7 +17,7 @@ class App extends React.Component {
       weatherDetails: [],
       showWeather: false.value,
       showMovieTimes: false,
-      movieDetails:[]
+      movieDetails: []
     }
   }
 
@@ -25,12 +26,13 @@ class App extends React.Component {
     try {
       let url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
       let cityDetails = await axios.get(url);
+
       let weatherURL = `${process.env.REACT_APP_SERVER}/weather?city=${this.state.city}&lat=${cityDetails.data[0].lat}&lon=${cityDetails.data[0].lon}`;
       let weather = await axios.get(weatherURL);
-      let movieURL = `${process.env.REACT_APP_SERVER}/movie?&city=${this.state.city}`;
+
+      let movieURL = `${process.env.REACT_APP_SERVER}/movies?city=${this.state.city}`;
       let movie = await axios.get(movieURL);
-      console.log(movieURL);
-      console.log(movie);
+
       this.setState({
         cityName: cityDetails.data[0].display_name,
         lat: cityDetails.data[0].lat,
@@ -40,7 +42,7 @@ class App extends React.Component {
         showWeather: true,
         error: false,
         showMovieTimes: true,
-        movieDetails: movie
+        movieDetails: movie.data
       });
     } catch (error) {
       this.setState({
@@ -61,6 +63,9 @@ class App extends React.Component {
   render() {
     let mapURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=${this.state.lat},${this.state.long}&zoom=13`
     let weatherDays = this.state.weatherDetails.map((forecast, idx) => <Weather weather={forecast} key={idx} />)
+    let movieInfo = this.state.movieDetails.map((movieInfo, idx) => <Movies movies={movieInfo} key={idx} />)
+    console.log(this.state.movieDetails);
+    console.log(movieInfo);
 
     return (
       <div id='body'>
@@ -69,7 +74,11 @@ class App extends React.Component {
         <form onSubmit={this.handleCitySubmit}>
           <label htmlFor="cityName">Enter a City:</label>
           <input type='text' id="cityName" onChange={this.cityChange} />
-          <Button type='submit' size='sm'>Lookup City Information</Button>
+          <Button
+            type='submit'
+            size='sm'>
+            Explore!
+          </Button>
         </form>
         {this.state.error
           ?
@@ -100,15 +109,13 @@ class App extends React.Component {
                   {this.state.showWeather && weatherDays}
                 </Accordion.Body>
                 <Accordion.Body>
-                  {/* <strong>Movie Showings</strong>
-                  {this.state.showMovieTimes && this.state.movieDetails} */}
+                  <strong>Movies with the Location Name:</strong>
+                  {this.state.showMovieTimes && movieInfo}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </div>
         }
-        <div>
-        </div>
       </div>
     );
   }
