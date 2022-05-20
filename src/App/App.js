@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Weather from './components/Weather/Weather.js'
-import Movies from './components/Movies/Movies.js'
+import Weather from '../components/Weather/Weather.js'
+import Movies from '../components/Movies/Movies.js'
 import axios from 'axios';
 import { Accordion, Image, Button } from 'react-bootstrap';
 
