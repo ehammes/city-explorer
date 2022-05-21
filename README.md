@@ -23,10 +23,10 @@ Collaborated with classmates and TAs to build application
 May 20, 2022
 ![](/public/img/lab10-wrrc.jpeg) in collaboration with Brady Davenport and Stanley Wilder
 - Name of Feature: Lab 10
-- Estiamte of time needed to complete: 3 hours
-- Start time: 2:00pm
-- Finish time: 5:00pm
-- Actual time needed to complete: 
+- Estiamte of time needed to complete: 2 hours
+- Start time: 5:00pm
+- Finish time: In progress
+- Actual time needed to complete: Will circle back to complete
 
 May 19, 2022
 ![](/public/img/wrrc051922.jpeg) in collaboration with Katharine Swilley
